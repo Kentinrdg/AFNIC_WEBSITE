@@ -5,10 +5,7 @@
         <head>
          
           <title>Ajout adminisrateur</title>
-          
-          <link href="css/style_profil.css" rel="stylesheet">
           <link href="css/navbar.css" rel="stylesheet">
-       
        <style>
 
        </style>   
@@ -27,6 +24,11 @@
         $_SESSION['login'];
         $_SESSION['pwd'];
     	?>
+
+      <p><h1>
+        Bonjour, <?php $_SESSION['login'] ?>
+      </p></h1>
+
 
 
 

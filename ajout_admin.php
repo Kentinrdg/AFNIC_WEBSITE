@@ -14,12 +14,12 @@
 
 <body>
 
-  <ul style="width: 100%; margin-left: 0;">
-    <li><a href="index.php">accueil</a></li>
-    <li><a id="toto" href="ajout.php">inscription</a></li>
-    <li><a href="profil.php">profil</a></li>
-    <li><a href="contact.php">Contact</a></li>
-  </ul>
+    <ul style="width: 100%; margin-left: 0;">
+        <li><a  href="admin.php">Admin</a></li>
+        <li><a  id="toto" href="ajout_admin.php">Ajout admin</a></li>
+        <li><a  href="challenge_admin.php">Challenge</a></li>
+        <li><a  href="table_user.php">Utilisateurs</a></li>
+    </ul>
 
 	<?php 
 	session_start();
@@ -39,8 +39,6 @@
 		$_SESSION['mail'] = $NewLogin;
 		$_SESSION['prenom'] = $Statut;
 
-		$Statut = "user";
-
 		if($NewLogin!="" && $NewPassword!="" && $Statut!="choisir un statut")
 		{
 			if($NewPassword==$NewPassword2)
@@ -56,8 +54,6 @@
 
 					$message='profil déja existant ';
 					echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-
-									//echo "toto";
 				}else 
 				{
 
@@ -67,12 +63,13 @@
 					$resultat->execute($donnees);
 					$ligne = $resultat->fetch();
 
-					if($ligne==0)
+					if($ligne == 0)
 					{
+
 						$message=' Profil Ajouté';
 						echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-						header('Location: profil.php'); 
-						//exit();
+						header('Location: admin.php'); 
+						exit();
 					}else 
 					{
 						$message='Erreur le profil n as pas été créé ';
@@ -86,7 +83,7 @@
 			}
 		}else
 		{
-			$message='Veuillez remplir tous les champs ';
+			$message='veuillez remplire tous les champs ';
 			echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 		}
 	}
@@ -94,36 +91,40 @@
 	?>
 
 	<div id ="formu1" >
+
 		<center>
+
 			<form method="POST" role="form">
+
 				<h3 class="text-center">
-					Ajout utilisateur
+					Ajout compte Administrateur
+
 				</h3>
 				<div class="form-group">
+
 					<label for="exampleInputEmail1">
 						Mail : 
 					</label>
-					<input class="form-control" id="login" type="text" name="login">
+					<input class="form-control" id="exampleInputEmail1" type="mail" name="login">
 				</div>
 				<div class="form-group">
 
+					<label for="exampleInputPassword1">
+						Mot de passe :
+					</label>
+					<input class="form-control" id="exampleInputPassword1" type="password" name="MDP">
+				</div>
+				<div class="form-group">
 					<label for="exampleInputPassword1">
 						Mot de passe : 
 					</label>
-					<input class="form-control" id="MDP" type="password" name="MDP">
-				</div>
-				<div class="form-group">
-
-					<label for="exampleInputPassword1">
-						Mot de passe 2 : 
-					</label>
-					<input class="form-control" id="MDP2" type="password" name="MDP2">
+					<input class="form-control" id="exampleInputPassword1" type="password" name="MDP2">
 				</div>
 
 				<label for="exampleInputPassword1">
-					Prénom : 
+					
 				</label>
-				<input class="form-control" id="prenom" type="text" name="prenom">
+				<input class="form-control" id="exampleInputPassword1" type="text" name="Statut">
 
 				<div class="form-group">
 					<p><button type="submit" class="btn-default" name="seconnecter">
