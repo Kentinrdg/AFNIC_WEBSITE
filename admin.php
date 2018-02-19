@@ -7,7 +7,7 @@
           <title>Ajout adminisrateur</title>
           
           <link href="css/style_profil.css" rel="stylesheet">
-          <link href="css/style.css" rel="stylesheet">
+          <link href="css/navbar.css" rel="stylesheet">
        
        <style>
 
@@ -24,11 +24,10 @@
     	?>
 
 <ul style="width: 100%; margin-left: 0;">
-    <li><a href="index.php">Acceuil</a></li>
-    <li><a  href="ajout_admin.php">Inscription</a></li>
-    <li><a id="toto" href="challenge_admin.php">Challenge</a></li>
+    <li><a  id="toto" href="admin.php">Admin</a></li>
+    <li><a  href="ajout_admin.php">Ajout admin</a></li>
+    <li><a  href="challenge_admin.php">Challenge</a></li>
     <li><a  href="table_user.php">Utilisateurs</a></li>
-    <li><a  href="#5">Contact</a></li>
 </ul>
 
 

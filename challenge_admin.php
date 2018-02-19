@@ -7,8 +7,8 @@
   <title>Ajout adminisrateur</title>
 
   <link href="css/style_profil.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style2.css" rel="stylesheet">
+  <link href="css/navbar.css" rel="stylesheet">
+  <link href="css/challenge.css" rel="stylesheet">
 
 
   <style>
@@ -35,11 +35,11 @@
  $_SESSION['pwd'];
  ?>
 
- <ul style="width: 100%; margin-left: 0;">
-  <li><a href="index.php">Acceuil</a></li>
-  <li><a id="ajout_admin" href="ajout_admin.php">Inscription</a></li>
-  <li><a id="toto" href="challenge_admin.php">Challenge</a></li>
-  <li><a href="#5">Contact</a></li>
+<ul style="width: 100%; margin-left: 0;">
+    <li><a   href="admin.php">Admin</a></li>
+    <li><a  href="ajout_admin.php">Ajout admin</a></li>
+    <li><a id="toto" href="challenge_admin.php">Challenge</a></li>
+    <li><a  href="table_user.php">Utilisateurs</a></li>
 </ul>
 
 <br>
@@ -66,7 +66,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="thumbnail">
-            <img alt="Bootstrap Miniature d'abord" src="css\linux.png">
+            <img alt="Bootstrap Miniature d'abord" src="images\linux.png">
             <div id="caption">
               <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 Challenge n°1 (facile)
@@ -82,7 +82,7 @@
         </div>
         <div class="col-md-4">
           <div class="thumbnail">
-            <img alt="Bootstrap Vignette Deuxième" src="css\cft.jpg">
+            <img alt="Bootstrap Vignette Deuxième" src="images\cft.jpg">
             <div id="caption">
               <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 Challenge n°2 (moyen)
@@ -98,7 +98,7 @@
         </div>
         <div class="col-md-4">
           <div class="thumbnail">
-            <img alt="Bootstrap Vignette Troisième" src="css\codecode.jpg">
+            <img alt="Bootstrap Vignette Troisième" src="images\codecode.jpg">
             <div id="caption">
               <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 Challenge n°3 (difficile)
