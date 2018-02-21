@@ -6,25 +6,15 @@
 
   <title>Ajout adminisrateur</title>
 
-  <link href="css/style_profil.css" rel="stylesheet">
   <link href="css/navbar.css" rel="stylesheet">
   <link href="css/challenge.css" rel="stylesheet">
-
-
   <style>
-  .bouton4 {
-    padding:6px 0 6px 0;
-    font:bold 13px Arial;
-    background:#f5f5f5;
-    color:#555;
-    border-radius:2px;
-    width:150px;
-    border:1px solid #ccc;
-    box-shadow:1px 1px 3px #999;
-    text-align: center;
-  }
-</style>   
 
+  body {
+    background: url(images/montagne1.jpg); 
+  }
+
+</style>
 </head>
 
 <body>
@@ -35,11 +25,10 @@
  $_SESSION['pwd'];
  ?>
 
-<ul style="width: 100%; margin-left: 0;">
-    <li><a   href="admin.php">Admin</a></li>
-    <li><a  href="ajout_admin.php">Ajout admin</a></li>
-    <li><a id="toto" href="challenge_admin.php">Challenge</a></li>
-    <li><a  href="table_user.php">Utilisateurs</a></li>
+ <ul style="width: 100%; margin-left: 0;">
+  <li><a   href="admin.php">Admin</a></li>
+  <li><a id="toto" href="challenge_admin.php">Challenge</a></li>
+  <li><a  href="table_user.php">Utilisateurs</a></li>
 </ul>
 
 <br>
@@ -48,13 +37,6 @@
 <div>
   Bonjour <?php echo $_SESSION['login']; ?>, 
   bienvenue sur la page Challenge permettant de séléctionner un challenge. 
-</div>
-
-<br>
-<br>
-
-<div style="text-align:center;">
-  <button type="button" onclick="window.location.href='change_go.php'" class="bouton4">Lancer challenge</button>
 </div>
 
 <br>

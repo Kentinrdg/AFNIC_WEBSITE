@@ -11,7 +11,11 @@
   
   <style>
 
-</style>   
+  body {
+    background: url(images/montagne1.jpg); 
+  }
+
+</style>
 
 </head>
 
@@ -23,12 +27,12 @@
 			//  echo $_SESSION['prenom'];
  ?>
 
-  <ul style="width: 100%; margin-left: 0;">
-    <li><a href="index.php">accueil</a></li>
-    <li><a href="ajout.php">inscription</a></li>
-    <li><a id="toto" href="profil.php">profil</a></li>
-    <li><a href="contact.php">Contact</a></li>
-  </ul>
+ <ul style="width: 100%; margin-left: 0;">
+  <li><a href="index.php">Accueil</a></li>
+  <li><a href="ajout.php">Inscription</a></li>
+  <li><a id="toto" href="profil.php">Profil</a></li>
+  <li><a href="contact.php">Contact</a></li>
+</ul>
 
 
 <h1 class="title-pen"> Profil <span></span></h1>

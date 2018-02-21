@@ -4,19 +4,31 @@
 
 	<meta charset="utf-8">
 	<title>accueil</title>
-  
-  <link href="css/navbar.css" rel="stylesheet">
-  <link href="css/table_user.css" rel="stylesheet">
 
+	<link href="css/navbar.css" rel="stylesheet">
+	<link href="css/popup.css" rel="stylesheet">
+	<link href="css/table_user.css" rel="stylesheet">
+
+	<style>
+	.success-popup  {
+		transition: .3s ease all;
+		font-family: 'Roboto', sans-serif;
+	}
+
+
+	body {
+		background: url(images/montagne1.jpg); 
+	}
+
+</style>
 </head>
 <body>
 
-<ul style="width: 100%; margin-left: 0;">
-    <li><a  href="admin.php">Admin</a></li>
-    <li><a  href="ajout_admin.php">Ajout admin</a></li>
-    <li><a  href="challenge_admin.php">Challenge</a></li>
-    <li><a id="toto" href="table_user.php">Utilisateurs</a></li>
-</ul>
+	<ul style="width: 100%; margin-left: 0;">
+		<li><a  href="admin.php">Admin</a></li>
+		<li><a  href="challenge_admin.php">Challenge</a></li>
+		<li><a id="toto" href="table_user.php">Utilisateurs</a></li>
+	</ul>
 
 	<?php
 	  //Connect to BDD
@@ -72,89 +84,99 @@
 	  					td:before
 	  					{
 	  						counter-increment:case;
-	  						content:counter(case);
+	  						
 	  					}</style>
-	  					<?php	$i=0;		while ($donnees = $reponse->fetch())
-	  					{?>
-
-
+	  					
+	  					<?php	
+	  					while ($donnees = $reponse->fetch())
+	  					{
+	  						?>
 	  						<tr>
-								 		 	<!--$nbligne=nbligne+1;
-								 		 		$nom[i]= $donnees['User'];-->
-								 		 		<?php 
+	  							<th><?php echo $donnees['Id']; ?></th>						
+	  							<th><?php echo $donnees['User']; ?></th>
+	  							<th><?php echo $donnees['Mdp']; ?></th>
+	  							<th><?php echo $donnees['Prenom']; ?></th>
+	  							<th><?php echo $donnees['Statut']; ?></th>
+	  							<td class="td-actions">
+	  								<form  method="POST" role="form" >
+	  									<p><input type="button" value="Supprimer" onclick="javascript:location.href='supprimer.php?id=<?php print($donnees['Id']); ?>';"/></button><p>
+	  									</form>
+	  								</td>
+	  							</tr>
+	  							<?php
+	  						}
+	  						?>
+	  					</tbody>
+	  				</table>
+	  			</div> <!-- /widget-content -->
+	  		</div> <!-- /widget -->
 
-								 		 		$i=$i+1;
-								 		 		$array = [
-								 		 			$i => $donnees['Id'],
-								 		 		];
-													//echo $array[$i];?>
-													<th><?php echo $donnees['Id']; ?></th>
-													<?php $toto=$donnees['User'];?>
-													<th><?php echo $donnees['User']; ?></th>
-													<th><?php echo $donnees['Mdp']; ?></th>
-													<th><?php echo $donnees['Prenom']; ?></th>
-													<th><?php echo $donnees['Statut']; ?></th>
+	  		<br>
+	  	</br>
+	  	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	  	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	  	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-													<td class="td-actions">
-														<form  method="POST" role="form" >
-															<p><button type="submit" class="btn-default"  name="Supprimer" value=case>Supprimer</button><p>
-															</form>
+	  	<div class="a9">
+	  		<div clas="a9"></div> <a class="button" href="#popup1">Inscrire admin</a>
 
-														</td>
-													</tr>
+	  		<div id="popup1" class="overlay">
+	  			<div class="popup"><br />
+	  				<h3>Inscription Administrateur</h3>
 
-													<?php
-												}?>
-											</tbody>
-										</table>
+	  				<a class="close" href="#">×</a><br>
+	  				<!--<a class="close" href="#">×</a><br>-->
+	  				<form  method="POST" role="form" >
 
-									</div> <!-- /widget-content -->
+	  					Prénom: <br/> <input name="prenom" value="prenom" name="prenom" placeholder="prenom"/><br/>
+	  					User:<br /> <input name="user" value="user" name="user" placeholder="user" /><br />
+	  					Password:<br /> <input name="password" type="Password" value="password" name="password" placeholder="*******" /><br />
+	  					Définir rôle : <br/> 	 
 
-								</div> <!-- /widget -->
-								<?php echo $donnees['Id']; 
-								echo $_POST['Supprimer'];?>
-								<?php
-
-								if(isset($_POST['Supprimer']))
-								{
-			//echo 'coucou';
-									$popo="";
-									$popo=
-
-									$username = "";
-									$_SESSION['id']= $array[$i];
-									$username = $_SESSION['id'];
-
-
-
-									$requete = "DELETE FROM log WHERE ID = :username";
-									$donnees=array(":username"=>$username);
-									$resultat = $conn->prepare($requete); 
-				//$resultat->bindParam(':username', $username);
-									$resultat->execute($donnees);
-									$test = $resultat->fetch();
-									if($test == 0)
-									{
-					//echo "<p>Le compte de ".$username." a bien supprimé.<p>";
-					//echo "<p>Veuillez patienter..<p>";
-										header("Location:toto.php");
-					//$message = 'Profil Supprimer';
-					//echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-									} 
-									else
-									{
-										echo "<p>Impossible de supprimé le profil.<p>";
-									}
-								}
+	  					<select name="selectoption">
+	  						<option value="user">Utilisateur</option>
+	  						<option value="admin">Administrateur</option>
+	  					</select><br/><br/>
 
 
+	  					<button class="btn btn-success"  value="send" name="send" id= "send">Inscrire </button> 
+	  					<?php
+	  					if(isset($_POST['send']))
+
+	  						$selectOption = $_POST['selectoption'];
+
+	  					//$message= $selectOption;
+	  					//echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+
+	  					$NewPrenom = $_POST['prenom'];
+	  					$NewLogin = $_POST['user'];
+	  					$NewPassword = $_POST['password'];
+	  					$Statut = $selectOption;
 
 
-			/*
-				
-				 
-		 */
-			?>
-		</div>
+	  					$conn = new PDO ("mysql:host=192.168.0.44;dbname=projet","admin","admin"); 
+	  					$sql = $conn->prepare("INSERT INTO log(User, Mdp, Prenom, Statut)VALUES (? ,? ,?, ?)");
+	  					$sql->bindParam(1, $NewLogin);
+	  					$sql->bindParam(2, $NewPassword);
+	  					$sql->bindParam(3, $NewPrenom);
+	  					$sql->bindParam(4, $Statut);
+	  					$result = $sql->execute();
+
+
+
+	  					if (!$result) {
+	  						print_r($sql->errorInfo());
+	  					} else {
+	  						$message=' Profil Ajouté';
+	  						echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+	  						echo '<script type="text/javascript">window.refresh();</script>';
+	  					}
+
+	  					?>
+	  				</form>
+	  			</div>
+	  		</div>
+	  	</div>
+	  </div>
 	</body>
 	</html>
