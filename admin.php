@@ -25,8 +25,15 @@
 
   <?php 
   session_start();
-  $name = $_SESSION['login'];
-  $_SESSION['pwd'];
+  $login = $_SESSION['login'];
+  $Statut = $_SESSION['Statut'];
+  echo $login;
+  echo $Statut;
+  if($Statut == "admin"){
+    
+  } else {
+    header("location:erreur_connexion.php"); 
+  }
   ?>
 
   <p><h1>
@@ -34,8 +41,19 @@
   </p></h1>
 
 
+  <form method="POST" role="form">
+    <p><button type="submit" class="btn-default" name="deconnexion">
+      Déconnexion
+    </button><p>
 
+    </form>
 
+    <?php 
+    if (isset($_POST['deconnexion'])){
+      session_destroy();
+      header("Location: index.php");
+    }
+    ?>
 
-</body>
-</html>
+  </body>
+  </html>

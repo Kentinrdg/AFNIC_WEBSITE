@@ -30,13 +30,10 @@
 	<?php 
 	session_start();
 
-					// Create connection
-	$conn=new PDO ("mysql:host=192.168.0.44;dbname=projet","admin","admin");
+	include 'bdd.php';
 
 	if (isset($_POST['seconnecter']))
 	{	
-
-
 		$NewLogin=$_POST["login"];
 		$NewPassword=$_POST['MDP'];
 		$NewPassword2=$_POST['MDP2'];

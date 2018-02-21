@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
 
-  <title>Accueil</title>
+  <title>Home</title>
   <link href="css/navbar.css" rel="stylesheet">
   <link href="css/formulaire.css" rel="stylesheet">
   <style>
@@ -35,7 +35,7 @@
     $Statut = $_SESSION['Statut'];
   }
 
-  $conn=new PDO ("mysql:host=192.168.0.44;dbname=projet","admin","admin");
+  include 'bdd.php';
 
   $Statut = $_SESSION['Statut'];
 
@@ -50,6 +50,8 @@
 
    $login=$_POST["login"];
    $mdp=$_POST['MDP'];
+   //session_register($_POST['login']); 
+   //session_register($_POST['Statut']); 
    $_SESSION['login'] = $_POST['login'];
    $_SESSION['pwd'] = $_POST['MDP'];
 

@@ -4,7 +4,7 @@
 <html lang="fr">
 <head>
 
-  <title>Ajout adminisrateur</title>
+  <title>Challenge Administrateur</title>
 
   <link href="css/navbar.css" rel="stylesheet">
   <link href="css/challenge.css" rel="stylesheet">
@@ -19,27 +19,38 @@
 
 <body>
 
- <?php 
- session_start();
- $_SESSION['login'];
- $_SESSION['pwd'];
- ?>
+  <?php
+    //Connect to BDD
+  include 'bdd.php';
+  //$conn=new PDO ("mysql:host=localhost;dbname=test","root","");
+   // $conn = new PDO ("mysql:host=192.168.0.44;dbname=projet","admin","admin"); //  localhost -u root -p | 192.168.0.44 -u admin -p admin
 
- <ul style="width: 100%; margin-left: 0;">
-  <li><a   href="admin.php">Admin</a></li>
-  <li><a id="toto" href="challenge_admin.php">Challenge</a></li>
-  <li><a  href="table_user.php">Utilisateurs</a></li>
-</ul>
+  session_start();
+  $login = $_SESSION['login'];
+  $Statut = $_SESSION['Statut'];
 
-<br>
-<br>
+  if($Statut == "admin"){
 
-<div>
-  Bonjour <?php echo $_SESSION['login']; ?>, 
-  bienvenue sur la page Challenge permettant de séléctionner un challenge. 
-</div>
+  } else {
+    header("location:erreur_connexion.php"); 
+  }
+  ?>
 
-<br>
+  <ul style="width: 100%; margin-left: 0;">
+    <li><a   href="admin.php">Admin</a></li>
+    <li><a id="toto" href="challenge_admin.php">Challenge</a></li>
+    <li><a  href="table_user.php">Utilisateurs</a></li>
+  </ul>
+
+  <br>
+  <br>
+
+  <div>
+    Bonjour <?php echo $_SESSION['login']; ?>, 
+    bienvenue sur la page Challenge permettant de séléctionner un challenge. 
+  </div>
+
+  <br>
 </br>
 
 <div id="container-fluid">

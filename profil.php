@@ -3,8 +3,8 @@
 
 <html lang="fr">
 <head>
- 
-  <title>Ajout adminisrateur</title>
+
+  <title>Profil</title>
   
   <link href="css/style_profil.css" rel="stylesheet">
   <link href="css/navbar.css" rel="stylesheet">
@@ -23,11 +23,19 @@
 
  <?php 
  session_start();
-		//	  echo $_SESSION['mail'];
-			//  echo $_SESSION['prenom'];
- ?>
+ $login = $_SESSION['login'];
+ $Statut = $_SESSION['Statut'];
 
- <ul style="width: 100%; margin-left: 0;">
+ if($Statut == "admin"){
+
+ } else {
+   if(!isset($_SESSION['login'])){ 
+    header("location:erreur_connexion.php"); 
+  } 
+}
+?>
+
+<ul style="width: 100%; margin-left: 0;">
   <li><a href="index.php">Accueil</a></li>
   <li><a href="ajout.php">Inscription</a></li>
   <li><a id="toto" href="profil.php">Profil</a></li>
@@ -37,8 +45,8 @@
 
 <h1 class="title-pen"> Profil <span></span></h1>
 <div class="user-profile">
-	<img class="avatar" src="css\profil.png" alt="Ash" />
-  <div class="username"><?php echo $_SESSION['prenom'];	?></div>
+	<img class="avatar" src="images\profil.png" alt="Ash" />
+  <div class="username"><?php echo $_SESSION['login'];	?></div>
   <div class="bio">
   	Novice
   </div>
