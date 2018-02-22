@@ -62,7 +62,7 @@
   { 
 
    $login=$_POST["login"];
-   $mdp=$_POST['MDP'];
+   $mdp=MD5($_POST['MDP']);
    //session_register($_POST['login']); 
    //session_register($_POST['Statut']); 
    $_SESSION['login'] = $_POST['login'];
@@ -71,6 +71,7 @@
 
    $requete = "SELECT * FROM `log` WHERE User = :login AND Mdp = :mdp";
    $donnees=array(":login"=>$login,":mdp"=>$mdp);
+   echo $mdp;
    $resultat = $conn->prepare($requete); 
    $resultat->execute($donnees);
    $ligne = $resultat->fetch();
@@ -106,7 +107,7 @@
             ?>
 
             <form method="POST" role="form">
-              <p><button type="submit" class="btn-default" name="deconnexion">
+              <p><button type="submit" class="btn btn-danger" name="deconnexion">
                 Déconnexion
               </button><p>
 
@@ -141,7 +142,7 @@
                         <input class="form-control" id="exampleInputPassword1" type="password" name="MDP">
                       </div>
 
-                      <p><button type="submit" class="btn-default" name="seconnecter">
+                      <p><button type="submit" class="btn btn-primary" name="seconnecter">
                         Se connecter
                       </button><p>
                       </form>

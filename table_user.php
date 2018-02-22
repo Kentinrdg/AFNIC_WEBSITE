@@ -163,7 +163,7 @@
 						include 'bdd.php';
 						$sql = $conn->prepare("INSERT INTO log(User, Mdp, Prenom, Statut)VALUES (? ,? ,?, ?)");
 						$sql->bindParam(1, $NewLogin);
-						$sql->bindParam(2, $NewPassword);
+						$sql->bindParam(2, md5($NewPassword));
 						$sql->bindParam(3, $NewPrenom);
 						$sql->bindParam(4, $Statut);
 						$result = $sql->execute();

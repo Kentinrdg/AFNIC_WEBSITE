@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="css/bootstrap.min.js"></script>
-	<link href="css/formulaire.css" rel="stylesheet">
+
 
 
 	<style>
@@ -75,7 +75,7 @@
 				{
 
 					$requete = "INSERT INTO `log`( `User`, `Mdp`, `Prenom`) VALUES ( :NewLogin , :NewPassword , :Statut )";
-					$donnees=array(":NewLogin"=>$NewLogin,":NewPassword"=>$NewPassword,":Statut"=>$Statut);
+					$donnees=array(":NewLogin"=>$NewLogin,":NewPassword"=>md5($NewPassword),":Statut"=>$Statut);
 					$resultat = $conn->prepare($requete); 
 					$resultat->execute($donnees);
 					$ligne = $resultat->fetch();
@@ -106,50 +106,44 @@
 
 	?>
 
-	<div id ="formu1" >
-		<center>
-			<form method="POST" role="form">
-				<h3 class="text-center">
-					Ajout utilisateur
-				</h3>
-				<div class="form-group">
-					<label for="exampleInputEmail1">
-						Mail : 
-					</label>
-					<input class="form-control" id="login" type="text" name="login">
-				</div>
-				<div class="form-group">
-
-					<label for="exampleInputPassword1">
-						Mot de passe : 
-					</label>
-					<input class="form-control" id="MDP" type="password" name="MDP">
-				</div>
-				<div class="form-group">
-
-					<label for="exampleInputPassword1">
-						Mot de passe 2 : 
-					</label>
-					<input class="form-control" id="MDP2" type="password" name="MDP2">
-				</div>
+	<div class="col-xs-4">
+		<form method="POST" role="form">
+			<h3 class="text-center">
+				Ajout utilisateur
+			</h3>
+			<div class="form-group">
+				<label for="exampleInputEmail1">
+					Mail : 
+				</label>
+				<input class="form-control" id="login" type="text" name="login">
+			</div>
+			<div class="form-group">
 
 				<label for="exampleInputPassword1">
-					Prénom : 
+					Mot de passe : 
 				</label>
-				<input class="form-control" id="prenom" type="text" name="prenom">
+				<input class="form-control" id="MDP" type="password" name="MDP">
+			</div>
+			<div class="form-group">
 
-				<div class="form-group">
-					<p><button type="submit" class="btn-default" name="seconnecter">
-						Ajouté
-					</button><p>
+				<label for="exampleInputPassword1">
+					Mot de passe 2 : 
+				</label>
+				<input class="form-control" id="MDP2" type="password" name="MDP2">
+			</div>
 
-					</div>
-				</form>
-
-			</center>
-
+			<label for="exampleInputPassword1">
+				Prénom : 
+			</label>
+			<input class="form-control" id="prenom" type="text" name="prenom">
+			<br>
+			<div class="form-group">
+				<p><button type="submit" class="btn btn-primary" name="seconnecter">
+					Ajouté
+				</button><p>
+				</div>
+			</form>
 		</div>
-
-
-	</body>
-	</html>
+	</div>
+</body>
+</html>

@@ -49,7 +49,7 @@
 
 
       <form method="POST" role="form">
-        <p><button type="submit" class="btn-default" name="deconnexion">
+        <p><button type="submit" class="btn btn-danger" name="deconnexion">
           Déconnexion
         </button><p>
 

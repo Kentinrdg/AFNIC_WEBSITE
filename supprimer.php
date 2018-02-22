@@ -1,5 +1,6 @@
 <?php
-	$conn = new PDO ("mysql:host=192.168.0.44;dbname=projet","admin","admin"); //  localhost -u root -p | 192.168.0.44 -u admin -p admin
+	include 'bdd.php';
+	//$conn = new PDO ("mysql:host=192.168.0.44;dbname=projet","admin","admin"); //  localhost -u root -p | 192.168.0.44 -u admin -p admin
 	$requete = "DELETE FROM log WHERE ID = :id";
 	$donnees=array(':id'=>$_GET['id']);
 	$resultat = $conn->prepare($requete); 
