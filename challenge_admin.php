@@ -6,7 +6,9 @@
 
   <title>Challenge Administrateur</title>
 
-  <link href="css/navbar.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="css/bootstrap.min.js"></script>
   <link href="css/challenge.css" rel="stylesheet">
   <style>
 
@@ -35,12 +37,18 @@
     header("location:erreur_connexion.php"); 
   }
   ?>
-
-  <ul style="width: 100%; margin-left: 0;">
-    <li><a   href="admin.php">Admin</a></li>
-    <li><a id="toto" href="challenge_admin.php">Challenge</a></li>
-    <li><a  href="table_user.php">Utilisateurs</a></li>
-  </ul>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.php">JNAK - CPIR</a>
+      </div>
+      <ul class="nav navbar-nav" style="font-size:15px">
+        <li><a  href="admin.php">Admin</a></li>
+        <li class="active"><a  href="challenge_admin.php">Challenge</a></li>
+        <li><a  href="table_user.php">Utilisateurs</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <br>
   <br>

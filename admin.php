@@ -5,8 +5,9 @@
 <head>
 
   <title>Ajout adminisrateur</title>
-  <link href="css/background.css" rel="stylesheet">
-  <link href="css/navbar.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="css/bootstrap.min.js"></script>
   <style>
 
   body {
@@ -17,43 +18,49 @@
 </head>
 
 <body>
-  <ul style="width: 100%; margin-left: 0;">
-    <li><a  id="toto" href="admin.php">Admin</a></li>
-    <li><a  href="challenge_admin.php">Challenge</a></li>
-    <li><a  href="table_user.php">Utilisateurs</a></li>
-  </ul>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.php">JNAK - CPIR</a>
+      </div>
+      <ul class="nav navbar-nav" style="font-size:15px">
+        <li class="active"><a  href="admin.php">Admin</a></li>
+        <li><a  href="challenge_admin.php">Challenge</a></li>
+        <li><a  href="table_user.php">Utilisateurs</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <?php 
-  session_start();
-  $login = $_SESSION['login'];
-  $Statut = $_SESSION['Statut'];
-  echo $login;
-  echo $Statut;
-  if($Statut == "admin"){
-    
-  } else {
-    header("location:erreur_connexion.php"); 
-  }
-  ?>
+      <?php 
+      session_start();
+      $login = $_SESSION['login'];
+      $Statut = $_SESSION['Statut'];
 
-  <p><h1>
-    Bonjour, <?php  echo $_SESSION['login']; ?>
-  </p></h1>
+      if($Statut == "admin"){
+
+      } else {
+        header("location:erreur_connexion.php"); 
+      }
+      ?>
+
+      <p><h1>
+        Bonjour, <?php  echo $_SESSION['login']; ?>
+      </p></h1>
 
 
-  <form method="POST" role="form">
-    <p><button type="submit" class="btn-default" name="deconnexion">
-      Déconnexion
-    </button><p>
+      <form method="POST" role="form">
+        <p><button type="submit" class="btn-default" name="deconnexion">
+          Déconnexion
+        </button><p>
 
-    </form>
+        </form>
 
-    <?php 
-    if (isset($_POST['deconnexion'])){
-      session_destroy();
-      header("Location: index.php");
-    }
-    ?>
+        <?php 
+        if (isset($_POST['deconnexion'])){
+          session_destroy();
+          header("Location: index.php");
+        }
+        ?>
 
-  </body>
-  </html>
+      </body>
+      </html>

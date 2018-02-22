@@ -5,7 +5,10 @@
 	<meta charset="utf-8">
 	<title>Table d'utilisateurs</title>
 
-	<link href="css/navbar.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="css/bootstrap.min.js"></script>
+	<link href="css/challenge.css" rel="stylesheet">
 	<link href="css/popup.css" rel="stylesheet">
 	<link href="css/table_user.css" rel="stylesheet">
 
@@ -24,11 +27,18 @@
 </head>
 <body>
 
-	<ul style="width: 100%; margin-left: 0;">
-		<li><a  href="admin.php">Admin</a></li>
-		<li><a  href="challenge_admin.php">Challenge</a></li>
-		<li><a id="toto" href="table_user.php">Utilisateurs</a></li>
-	</ul>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.php">JNAK - CPIR</a>
+			</div>
+			<ul class="nav navbar-nav" style="font-size:15px">
+				<li><a  href="admin.php">Admin</a></li>
+				<li><a  href="challenge_admin.php">Challenge</a></li>
+				<li class="active"><a  href="table_user.php">Utilisateurs</a></li>
+			</ul>
+		</div>
+	</nav>
 
 	<?php
 	include 'bdd.php';
@@ -49,18 +59,11 @@
 	  //exec request sql 
 	$reponse = $conn->query($requetesql);
 	?>
-	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-
-	<!------ Include the above in your HEAD tag ---------->
-
-
+	<h3 style="background-color: white;"><center>Table des utilisateurs</center></h3>
 	<div class="span7">   
 		<div class="widget stacked widget-table action-table">
-
-			<div class="widget-header">
-
-				<h3>Table des user</h3>
+			<!--<div class="widget-header" style="text-align: center;">
+				
 			</div> <!-- /widget-header -->
 
 			<div class="widget-content">
@@ -131,9 +134,9 @@
 					<!--<a class="close" href="#">×</a><br>-->
 					<form  method="POST" role="form" >
 
-						Prénom: <br/> <input name="prenom" value="prenom" name="prenom" placeholder="prenom"/><br/>
-						User:<br /> <input name="user" value="user" name="user" placeholder="user" /><br />
-						Password:<br /> <input name="password" type="Password" value="password" name="password" placeholder="*******" /><br />
+						Prénom: <br/> <input name="prenom" name="prenom" placeholder="prenom"/><br/>
+						User:<br /> <input name="user" name="user" placeholder="user" /><br />
+						Password:<br /> <input name="password" type="Password" name="password" placeholder="*******" /><br />
 						Définir rôle : <br/> 	 
 
 						<select name="selectoption">
@@ -157,7 +160,7 @@
 						$Statut = $selectOption;
 
 
-						$conn = new PDO ("mysql:host=192.168.0.44;dbname=projet","admin","admin"); 
+						include 'bdd.php';
 						$sql = $conn->prepare("INSERT INTO log(User, Mdp, Prenom, Statut)VALUES (? ,? ,?, ?)");
 						$sql->bindParam(1, $NewLogin);
 						$sql->bindParam(2, $NewPassword);

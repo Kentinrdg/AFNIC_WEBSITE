@@ -11,7 +11,10 @@
   <meta name="author" content="LayoutIt!">
 
   <link href="css/contact.css" rel="stylesheet">
-  <link href="css/navbar.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="css/bootstrap.min.js"></script>
   <style>
 
   body {
@@ -22,19 +25,28 @@
 
 </head>
 <body>
-  <ul style="width: 100%; margin-left: 0;">
-    <li><a href="index.php">Accueil</a></li>
-    <li><a href="ajout.php">Inscription</a></li>
-    <li><a href="profil.php">Profil</a></li>
-    <li><a id="toto" href="contact.php">Contact</a></li>
-  </ul>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      <a class="navbar-brand" href="index.php">JNAK - CPIR</a>
+      </div>
+      <ul class="nav navbar-nav" style="font-size:15px">
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="ajout.php">Inscription</a></li>
+        <li><a href="profil.php">Profil</a></li>
+        <li class="active"><a href="contact.php">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-3">
             <div class="thumbnail">
-              <img src="images/jeremie.jpg">
+              <img src="images/jeremie.jpg" style="width: 70%; height: 70%">
               <div class="caption">
                 <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                   Jeremie Sema
@@ -48,7 +60,7 @@
             </div>
             <div class="col-md-3">
               <div class="thumbnail">
-                <img alt="Bootstrap Vignette Deuxième" src="images/nathan.jpg">
+                <img alt="Bootstrap Vignette Deuxième" style="width: 70%; height: 70%" src="images/nathan.jpg">
                 <div class="caption">
                   <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Nathan Da Costa
@@ -108,7 +120,7 @@
             
             <div class="col-md-3">
               <div class="thumbnail">
-                <img alt="Bootstrap Vignette Deuxième" src="images/kentin.jpg">
+                <img alt="Bootstrap Vignette Deuxième" style="width: 70%; height: 70%" src="images/kentin.jpg">
                 <div class="caption">
                   <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Kentin Rodrigues
@@ -122,7 +134,7 @@
             </div>
             <div class="col-md-3">
               <div class="thumbnail">
-                <img alt="Bootstrap Vignette Troisième" src="images/alexis.jpg">
+                <img alt="Bootstrap Vignette Troisième" style="width: 70%; height: 70%" src="images/alexis.jpg">
                 <div class="caption">
                   <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Alexis Dubourguais--Amy

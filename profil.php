@@ -6,8 +6,10 @@
 
   <title>Profil</title>
   
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="css/bootstrap.min.js"></script>
   <link href="css/style_profil.css" rel="stylesheet">
-  <link href="css/navbar.css" rel="stylesheet">
   
   <style>
 
@@ -35,12 +37,19 @@
 }
 ?>
 
-<ul style="width: 100%; margin-left: 0;">
-  <li><a href="index.php">Accueil</a></li>
-  <li><a href="ajout.php">Inscription</a></li>
-  <li><a id="toto" href="profil.php">Profil</a></li>
-  <li><a href="contact.php">Contact</a></li>
-</ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.php">JNAK - CPIR</a>
+    </div>
+    <ul class="nav navbar-nav" style="font-size:15px">
+      <li><a href="index.php">Accueil</a></li>
+      <li><a href="ajout.php">Inscription</a></li>
+      <li class="active"><a href="profil.php">Profil</a></li>
+      <li><a href="contact.php">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
 
 <h1 class="title-pen"> Profil <span></span></h1>
