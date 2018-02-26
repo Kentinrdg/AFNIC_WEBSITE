@@ -37,8 +37,25 @@
 				<li><a  href="challenge_admin.php">Challenge</a></li>
 				<li class="active"><a  href="table_user.php">Utilisateurs</a></li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<form method="POST" role="form">
+						<button type="submit" class="btn btn-danger" name="deconnexion">
+							Déconnexion
+						</button>
+					</form>
+				</li>
+			</ul>
 		</div>
 	</nav>
+
+	<?php 
+	if (isset($_POST['deconnexion'])){
+		session_destroy();
+		header("Location: index.php");
+	}
+	?>
+	
 
 	<?php
 	include 'bdd.php';
@@ -183,6 +200,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div  style="background-color: white;" class="container-fluid">
+		<?php include 'footer.php'; ?>
 	</div>
 </body>
 </html>

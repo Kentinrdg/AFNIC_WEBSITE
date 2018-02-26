@@ -3,22 +3,11 @@
 
 <html lang="fr">
 <head>
-
-
 	<title>Ajout adminisrateur</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="css/bootstrap.min.js"></script>
-
-
-
-	<style>
-
-	body {
-		background: url(images/montagne1.jpg); 
-	}
-
-</style>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="css/index.css" rel="stylesheet">
 </head>
 
 <body>
@@ -45,11 +34,12 @@
 	if (isset($_POST['seconnecter']))
 	{	
 		$NewLogin=$_POST["login"];
+		$NewPrenom=$_POST['prenom'];
 		$NewPassword=$_POST['MDP'];
 		$NewPassword2=$_POST['MDP2'];
 		$Statut=$_POST['Statut'];
 
-		$_SESSION['mail'] = $NewLogin;
+		$_SESSION['login'] = $NewLogin;
 		$_SESSION['prenom'] = $Statut;
 
 		$Statut = "user";
@@ -74,8 +64,8 @@
 				}else 
 				{
 
-					$requete = "INSERT INTO `log`( `User`, `Mdp`, `Prenom`) VALUES ( :NewLogin , :NewPassword , :Statut )";
-					$donnees=array(":NewLogin"=>$NewLogin,":NewPassword"=>md5($NewPassword),":Statut"=>$Statut);
+					$requete = "INSERT INTO `log`( `User`, `Mdp`, `Prenom`, `Statut`) VALUES ( :NewLogin , :NewPassword, :NewPrenom, :Statut )";
+					$donnees=array(":NewLogin"=>$NewLogin,":NewPassword"=>md5($NewPassword),":NewPrenom"=>$NewPrenom,":Statut"=>$Statut);
 					$resultat = $conn->prepare($requete); 
 					$resultat->execute($donnees);
 					$ligne = $resultat->fetch();
@@ -106,44 +96,54 @@
 
 	?>
 
-	<div class="col-xs-4">
-		<form method="POST" role="form">
-			<h3 class="text-center">
-				Ajout utilisateur
-			</h3>
-			<div class="form-group">
-				<label for="exampleInputEmail1">
-					Mail : 
-				</label>
-				<input class="form-control" id="login" type="text" name="login">
-			</div>
-			<div class="form-group">
+	<div class="container">
+		<div class="card card-container">
+			<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+			<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+			<p id="profile-name" class="profile-name-card"></p>
+			<form method="POST" role="form">
 
-				<label for="exampleInputPassword1">
-					Mot de passe : 
-				</label>
-				<input class="form-control" id="MDP" type="password" name="MDP">
-			</div>
-			<div class="form-group">
-
-				<label for="exampleInputPassword1">
-					Mot de passe 2 : 
-				</label>
-				<input class="form-control" id="MDP2" type="password" name="MDP2">
-			</div>
-
-			<label for="exampleInputPassword1">
-				Prénom : 
-			</label>
-			<input class="form-control" id="prenom" type="text" name="prenom">
-			<br>
-			<div class="form-group">
-				<p><button type="submit" class="btn btn-primary" name="seconnecter">
-					Ajouté
-				</button><p>
+				<h3 class="text-center">
+					Ajout utilisateur
+				</h3>
+				<div class="form-group">
+					<label for="exampleInputEmail1">
+						Mail : 
+					</label>
+					<input class="form-control" id="login" type="email" name="login">
 				</div>
-			</form>
+
+				<div class="form-group">
+
+					<label for="exampleInputPassword1">
+						Mot de passe : 
+					</label>
+					<input class="form-control" id="MDP" type="password" name="MDP">
+				</div>
+				<div class="form-group">
+
+					<label for="exampleInputPassword1">
+						Mot de passe 2 : 
+					</label>
+					<input class="form-control" id="MDP2" type="password" name="MDP2">
+				</div>
+
+				<label for="exampleInputPassword1">
+					Prénom : 
+				</label>
+				<input class="form-control" id="prenom" type="text" name="prenom">
+				<br>
+				<div class="form-group">
+					<p><button type="submit" class="btn btn-primary" name="seconnecter">
+						Ajouté
+					</button><p>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
-</body>
-</html>
+
+		<div  style="background-color: white;" class="container-fluid">
+			<?php include 'footer.php'; ?>
+		</div>
+	</body>
+	</html>

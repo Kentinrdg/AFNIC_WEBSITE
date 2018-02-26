@@ -47,8 +47,25 @@
         <li class="active"><a  href="challenge_admin.php">Challenge</a></li>
         <li><a  href="table_user.php">Utilisateurs</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <form method="POST" role="form">
+            <button type="submit" class="btn btn-danger" name="deconnexion">
+              Déconnexion
+            </button>
+          </form>
+        </li>
+      </ul>
     </div>
   </nav>
+
+  <?php 
+  if (isset($_POST['deconnexion'])){
+    session_destroy();
+    header("Location: index.php");
+  }
+  ?>
+  
 
   <br>
   <br>
@@ -73,53 +90,65 @@
                 Challenge n°1 (facile)
               </font></font></h3>
               <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-              Cras juste odio, dapibus ac facilisis dans, egestas eget quam. </font><font style="vertical-align: inherit;">Donec id élit non mi-porta gravida à eget metus. </font><font style="vertical-align: inherit;">Nullam id dolor id nibh ultricies véhicule id ut elit.
+              Le challenge n°1 est le plus facile. </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce challenge étant de... 
               </font></font></p>
               <p>
+                <a href="challenge/cha1.php" target="_new">
+                  <center>
+                   <button type="button" class="bouton4">Lancer challenge</button>
+                 </center>
+               </a>
+             </p>
+           </div>
+         </div>
+       </div>
+       <div class="col-md-4">
+        <div class="thumbnail">
+          <img alt="Bootstrap Vignette Deuxième" src="images\cft.jpg">
+          <div id="caption">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+              Challenge n°2 (moyen)
+            </font></font></h3>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            Cras juste odio, dapibus ac facilisis dans, egestas eget quam. </font><font style="vertical-align: inherit;">Donec id élit non mi-porta gravida à eget metus. </font><font style="vertical-align: inherit;">Nullam id dolor id nibh ultricies véhicule id ut elit.
+            </font></font></p>
+            <p>
+              <center>
                 <button type="button" onclick="window.location.href='change_go.php'" class="bouton4">Lancer challenge</button>
-              </p>
-            </div>
+              </center>
+            </p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <img alt="Bootstrap Vignette Deuxième" src="images\cft.jpg">
-            <div id="caption">
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                Challenge n°2 (moyen)
-              </font></font></h3>
-              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-              Cras juste odio, dapibus ac facilisis dans, egestas eget quam. </font><font style="vertical-align: inherit;">Donec id élit non mi-porta gravida à eget metus. </font><font style="vertical-align: inherit;">Nullam id dolor id nibh ultricies véhicule id ut elit.
-              </font></font></p>
-              <p>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img alt="Bootstrap Vignette Troisième" src="images\codecode.jpg">
+          <div id="caption">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+              Challenge n°3 (difficile)
+            </font></font></h3>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            Cras juste odio, dapibus ac facilisis dans, egestas eget quam. </font><font style="vertical-align: inherit;">Donec id élit non mi-porta gravida à eget metus. </font><font style="vertical-align: inherit;">Nullam id dolor id nibh ultricies véhicule id ut elit.
+            </font></font></p>
+            <p>
+              <center>
                 <button type="button" onclick="window.location.href='change_go.php'" class="bouton4">Lancer challenge</button>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <img alt="Bootstrap Vignette Troisième" src="images\codecode.jpg">
-            <div id="caption">
-              <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                Challenge n°3 (difficile)
-              </font></font></h3>
-              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-              Cras juste odio, dapibus ac facilisis dans, egestas eget quam. </font><font style="vertical-align: inherit;">Donec id élit non mi-porta gravida à eget metus. </font><font style="vertical-align: inherit;">Nullam id dolor id nibh ultricies véhicule id ut elit.
-              </font></font></p>
-              <p>
-                <button type="button" onclick="window.location.href='change_go.php'" class="bouton4">Lancer challenge</button>
-              </p>
-            </div>
+              </center>
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/scripts.js"></script>
+
+<div  style="background-color: white;" class="container-fluid">
+  <?php include 'footer.php'; ?>
+</div>
 </body>
 </html>

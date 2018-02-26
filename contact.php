@@ -29,7 +29,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">JNAK - CPIR</a>
+        <a class="navbar-brand" href="index.php">JNAK - CPIR</a>
       </div>
       <ul class="nav navbar-nav" style="font-size:15px">
         <li><a href="index.php">Accueil</a></li>
@@ -159,5 +159,9 @@
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script src="js/scripts.js"></script>
- </body>
- </html>
+
+   <div  style="background-color: white;" class="container-fluid">
+    <?php include 'footer.php'; ?>
+  </div>
+</body>
+</html>

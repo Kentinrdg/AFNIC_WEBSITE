@@ -28,8 +28,7 @@
         <li><a  href="challenge_admin.php">Challenge</a></li>
         <li><a  href="table_user.php">Utilisateurs</a></li>
       </ul>
-    </div>
-  </nav>
+
 
       <?php 
       session_start();
@@ -38,29 +37,39 @@
 
       if($Statut == "admin"){
 
-      } else {
-        header("location:erreur_connexion.php"); 
-      }
-      ?>
 
-      <p><h1>
-        Bonjour, <?php  echo $_SESSION['login']; ?>
-      </p></h1>
-
-
-      <form method="POST" role="form">
-        <p><button type="submit" class="btn btn-danger" name="deconnexion">
-          Déconnexion
-        </button><p>
-
-        </form>
-
-        <?php 
-        if (isset($_POST['deconnexion'])){
-          session_destroy();
-          header("Location: index.php");
-        }
         ?>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <form method="POST" role="form">
+              <button type="submit" class="btn btn-danger" name="deconnexion">
+                Déconnexion
+              </button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-      </body>
-      </html>
+    <?php
+  } else {
+    header("location:erreur_connexion.php"); 
+  }
+  ?>
+
+</div>
+</nav>
+
+<p><h1>
+  Bonjour, <?php  echo $_SESSION['login']; ?>
+</p></h1>
+
+<?php 
+if (isset($_POST['deconnexion'])){
+  session_destroy();
+  header("Location: index.php");
+}
+?>
+
+</body>
+</html>

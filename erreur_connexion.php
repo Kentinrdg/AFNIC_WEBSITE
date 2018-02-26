@@ -26,19 +26,19 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">JNAK - CPIR</a>
-      </div>
-      <ul class="nav navbar-nav" style="font-size:15px">
-        <li><a href="index.php">Accueil</a></li>
-        <li><a href="ajout.php">Inscription</a></li>
-        <li><a href="profil.php">Profil</a></li>
-        <li><a href="contact.php">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.php">JNAK - CPIR</a>
+			</div>
+			<ul class="nav navbar-nav" style="font-size:15px">
+				<li><a href="index.php">Accueil</a></li>
+				<li><a href="ajout.php">Inscription</a></li>
+				<li><a href="profil.php">Profil</a></li>
+				<li><a href="contact.php">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
 
 	<?php
 	  //Connect to BDD
@@ -61,6 +61,10 @@
 			<p class="text-center"><a class="btn btn-default" href="index.php"><i class="fa fa-home"></i>Connexion</a></p>
 			<center><img src="images/gandalf.png" style="width: 350px; height: 200px"></center>
 		</div>
+	</div>
+
+	<div  style="background-color: white;" class="container-fluid">
+		<?php include 'footer.php'; ?>
 	</div>
 </body>
 </html>

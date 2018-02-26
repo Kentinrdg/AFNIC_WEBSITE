@@ -12,12 +12,23 @@
   <link href="css/style_profil.css" rel="stylesheet">
   
   <style>
+  footer {
+    .grid(full);
+    background: #ffffff;
+    border-top: 0.0625em solid lightgrey;
+    bottom: 0; // !important helps maintain set height 
+    color: #000000;   
+    height: 5em; // !important - must be < = body margin-bottom
+    position: absolute; // !important clears
+    p {
+      .col(12; @ta: center);
+      padding: 1.25em;
+    } 
+    body {
+      background: url(images/montagne1.jpg); 
+    }
 
-  body {
-    background: url(images/montagne1.jpg); 
-  }
-
-</style>
+  </style>
 
 </head>
 
@@ -65,6 +76,8 @@
 
 </div>
 
-
+<div  style="background-color: white;" class="container-fluid">
+  <?php include 'footer.php'; ?>
+</div>
 </body>
 </html>

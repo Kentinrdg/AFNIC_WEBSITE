@@ -13,7 +13,6 @@
   body {
     background: url(images/montagne1.jpg); 
   }
-
 </style>
 </head>
 
@@ -48,36 +47,50 @@
 }
 ?>
 
-  </form>
+</form>
 
-  <?php 
-  if (isset($_POST['deconnexion'])){
-    session_destroy();
-    header("Location: index.php");
-  }
-  ?>
+<?php 
+if (isset($_POST['deconnexion'])){
+  session_destroy();
+  header("Location: index.php");
+}
+?>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-        <form role="form">
-          <div class="form-group">
-            <label for="exampleInputPassword1">
-              Validation : 
-            </label>
-            <input type="password" class="form-control" id="exampleInputPassword1" />
-          </div>
-          <button type="submit" class="btn btn-primary">
-            Envoyer
-          </button>
-        </form>
-      </div>
-      <div class="col-md-4">
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <form role="form">
+        <div class="form-group">
+          <label for="exampleInputPassword1">
+            Validation : 
+          </label>
+          <input type="password" class="form-control" id="exampleInputPassword1" />
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Envoyer
+        </button>
+      </form>
+    </div>
+    <div class="col-md-4">
     </div>
   </div>
+</div>
+
+<?php 
+include 'bdd.php';
+
+$sql = $conn->prepare("SELECT numero FROM flag");
+$reponse = $conn->query($sql);
+
+$echo $reponse;
+
+?>
+
+<div  style="background-color: white;" class="container-fluid">
+  <?php include 'footer.php'; ?>
+</div>
 
 </body>
 </html>
