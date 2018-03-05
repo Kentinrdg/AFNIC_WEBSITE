@@ -110,7 +110,7 @@
               Challenge n°2 (moyen)
             </font></font></h3>
             <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Cras juste odio, dapibus ac facilisis dans, egestas eget quam. </font><font style="vertical-align: inherit;">Donec id élit non mi-porta gravida à eget metus. </font><font style="vertical-align: inherit;">Nullam id dolor id nibh ultricies véhicule id ut elit.
+            Le challenge n°2 est le moyen.  </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce challenge étant de... 
             </font></font></p>
             <p>
               <center>
@@ -128,7 +128,7 @@
               Challenge n°3 (difficile)
             </font></font></h3>
             <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Cras juste odio, dapibus ac facilisis dans, egestas eget quam. </font><font style="vertical-align: inherit;">Donec id élit non mi-porta gravida à eget metus. </font><font style="vertical-align: inherit;">Nullam id dolor id nibh ultricies véhicule id ut elit.
+            Le challenge n°3 est le difficile.  </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce challenge étant de... 
             </font></font></p>
             <p>
               <center>

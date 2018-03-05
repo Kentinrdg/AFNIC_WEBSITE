@@ -135,20 +135,22 @@
     </div>
   </nav>
 
-  <div class="container-fluid">
+  <div class="container-fluid" style="background-color: white;">
     <div class="row">
       <div class="col-md-4">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6" >
         <form action="" method="post" name="authform">
           <div>
-           <h3>Lancer le challenge.</h3>
-           <button class="btn btn-primary" onclick="">Démarrer le challenge</button>
-         </div>
-       </form>
-     </div>
-   </div>    
- </div>
+            <h3>Retrouvez le flag. Bonne chance !</h3>
+            <br> <br>
+            <h4>CJOXAEDXIS EPELXTRURX RFXUXLGAPO XRSXXESUIR</h4>
+            <h4>9158a24367</h4>
+          </div>
+        </form>
+      </div>
+    </div>    
+  </div>
 </div>
 
 <?php  
@@ -156,7 +158,6 @@
 if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
   $login = $_POST['auth-login'];
   $button = $_POST['authbutton'];
-
   header("Location: result.php");
 }
 

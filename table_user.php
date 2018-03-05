@@ -141,7 +141,7 @@
 		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 		<div class="a9">
-			<div clas="a9"></div> <a class="button" href="#popup1">Inscrire admin</a>
+			<a class="button" href="#popup1">Inscrire admin</a>
 
 			<div id="popup1" class="overlay">
 				<div class="popup"><br />
@@ -201,6 +201,11 @@
 			</div>
 		</div>
 	</div>
+
+	<br> 
+	<br>
+	<br> 
+	<br>
 
 	<div  style="background-color: white;" class="container-fluid">
 		<?php include 'footer.php'; ?>

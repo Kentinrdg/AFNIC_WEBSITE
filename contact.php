@@ -66,7 +66,7 @@
                     Nathan Da Costa
                   </font></font></h3>
                   <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                    <FONT size="1">Branleur de passage un peu perdu mais gentil, a implémenté un bouton suprimmé.</FONT>
+                    <FONT size="1">Gestion d'infrastrure et développement web.</FONT>
                   </font></font></p>
 
                 </div>

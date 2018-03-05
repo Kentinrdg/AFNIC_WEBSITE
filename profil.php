@@ -72,6 +72,8 @@
   </div>
   <div class="description">
    Challenge accomplie : 
+
+   Nombre de points : 
  </div>
 
 </div>

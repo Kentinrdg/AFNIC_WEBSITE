@@ -7,27 +7,17 @@
                 <h2 class="logo"><img src="images/cfi.png" /></h2>
             </div>
             <div class="col-sm-2">
-                <h5>Get started</h5>
+                <h5>Commencer</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
-                    <li><a href="#">Downloads</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="ajout.php">Inscription</a></li>
                 </ul>
             </div>
             <div class="col-sm-2">
-                <h5>About us</h5>
+                <h5>Information</h5>
                 <ul>
-                    <li><a href="#">Company Information</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Reviews</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-2">
-                <h5>Support</h5>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Help desk</a></li>
-                    <li><a href="#">Forums</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="contact.php">Contact us</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
