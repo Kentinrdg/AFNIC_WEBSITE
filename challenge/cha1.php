@@ -78,6 +78,8 @@
 
        $login=$_POST["login"];
        $mdp=MD5($_POST['MDP']);
+	   
+	   //_SESSION
 
        $_SESSION['login'] = $_POST['login'];
        $_SESSION['pwd'] = $_POST['MDP'];
@@ -140,12 +142,78 @@
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
-        <form action="" method="post" name="authform">
-          <div>
-           <h3>Lancer le challenge.</h3>
-           <button class="btn btn-primary" onclick="">Démarrer le challenge</button>
+	  Lancer le challenge
+        <form  method="POST" role="form">
+          <div> 
+           <a href="./trameWS.pcapng">
+			   <input type="button"  class="btn btn-primary" value = "Démarrer le challenge" >
+		   </a>
+		   <br>
+		   <br>
+		   Veuillez entrer le nom d'utilisateur et le mot de passe trouvés :
+		   <br>
+		   <br>
+		   User : <input class="form-control" id="chall1" type="texte" name="userCh1">
+		   <br>
+		   Password : <input class="form-control" id="chall1" type="texte" name="mdpCh1">   
+		   <br>
+		   <button type="submit" class="btn btn-danger" name="verifmdpch1">
+		   Vérifier lees informations entrées
+		   </button>
          </div>
        </form>
+	   <?php
+	   if(isset($_POST['verifmdpch1']))
+	   {
+		   
+		   $userCh1 = $_POST['userCh1'];
+		   $passwordCh = $_POST['mdpCh1'];
+		   
+		   $requete = "SELECT * FROM `challenge1` WHERE users = :loginCh1 AND password = :passwordCh1 ";
+				$donnees=array(":loginCh1"=>$userCh1,":passwordCh1"=>$passwordCh);
+				$resultat = $conn->prepare($requete); 
+				$resultat->execute($donnees);
+				
+				if($ligne = $resultat->fetch())
+				{
+					
+					$key = "";
+					//echo $ligne['users'];
+					//echo $ligne['password'];
+					$ligne['point'];
+					$login = $_SESSION['login'];
+					// $_SESSION['pwd'];
+					$mdp=MD5($_SESSION['pwd']);
+					//echo $mdp."<br>";
+					
+					$requete = "SELECT `User`, `point_total` FROM `log` WHERE User = :loginsession	AND Mdp = :mdpsession";
+					$donnees=array(":loginsession"=>$login,":mdpsession"=>$mdp);
+					$resultat = $conn->prepare($requete); 
+					$resultat->execute($donnees);
+					if($key = $resultat->fetch())
+					{
+						echo 'coucou<br>';
+						echo $key['User'];
+						echo $key['point_total'];
+						echo "les point du challenge".$ligne['point'];
+						$pointAdditionner = $key['point_total'] + $ligne['point'];
+						echo $pointAdditionner;
+						
+						//"UPDATE log SET point_total = :$pointAdditionner WHERE User = :$key['User']";
+						//$pointAdditionner 
+						
+						//$key['User']
+						//INSERT INTO table (nom_colonne_1, nom_colonne_2,) VALUES ('valeur 1', 'valeur 2', ...) 
+						//INSERT INTO .. VALUES(..)  WHERE User = AND mdp = $pointAdditionner
+
+						
+					}
+				
+				}
+				
+	   }
+		
+	   ?>
      </div>
    </div>    
  </div>
