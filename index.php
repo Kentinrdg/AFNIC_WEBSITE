@@ -184,7 +184,7 @@
       </div>
     </div>
 
-    <div  style="background-color: white;" class="container-fluid">
+    <div  style="background-color: white; font-size: 14px" class="container-fluid">
       <?php include 'footer.php'; ?>
     </div>
   </body>
