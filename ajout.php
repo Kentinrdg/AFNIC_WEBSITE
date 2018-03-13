@@ -59,13 +59,13 @@
 
 					$message='profil déja existant ';
 					echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-
-									//echo "toto";
 				}else 
 				{
+					//Default no team
+					$equipe = "NONE";
 
-					$requete = "INSERT INTO `log`( `User`, `Mdp`, `Prenom`, `Statut`) VALUES ( :NewLogin , :NewPassword, :NewPrenom, :Statut )";
-					$donnees=array(":NewLogin"=>$NewLogin,":NewPassword"=>md5($NewPassword),":NewPrenom"=>$NewPrenom,":Statut"=>$Statut);
+					$requete = "INSERT INTO `log`( `User`, `Mdp`, `Prenom`, `Statut`, `equipe`) VALUES ( :NewLogin , :NewPassword, :NewPrenom, :Statut, :equipe )";
+					$donnees=array(":NewLogin"=>$NewLogin,":NewPassword"=>md5($NewPassword),":NewPrenom"=>$NewPrenom,":Statut"=>$Statut, ":equipe"=>$equipe);
 					$resultat = $conn->prepare($requete); 
 					$resultat->execute($donnees);
 					$ligne = $resultat->fetch();

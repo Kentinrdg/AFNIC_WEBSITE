@@ -72,7 +72,7 @@
 
   <div>
     Bonjour <?php echo $_SESSION['login']; ?>, 
-    bienvenue sur la page Challenge permettant de séléctionner un challenge. 
+    bienvenue sur la page Challenge permettant de séléctionner un scénario. 
   </div>
 
   <br>
@@ -87,15 +87,15 @@
             <img alt="Bootstrap Miniature d'abord" src="images\linux.png">
             <div id="caption">
               <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                Challenge n°1 (facile)
+                Scénario n°1 (facile)
               </font></font></h3>
               <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-              Le challenge n°1 est le plus facile. </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce challenge étant de... 
+              Le scénario n°1 est le plus facile. </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce scénario étant de... 
               </font></font></p>
               <p>
                 <a href="challenge/cha1.php" target="_new">
                   <center>
-                   <button type="button" class="bouton4">Lancer challenge</button>
+                   <button type="button" class="bouton4">Lancer scénario</button>
                  </center>
                </a>
              </p>
@@ -107,14 +107,14 @@
           <img alt="Bootstrap Vignette Deuxième" src="images\cft.jpg">
           <div id="caption">
             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-              Challenge n°2 (moyen)
+              Scénario n°2 (moyen)
             </font></font></h3>
             <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Le challenge n°2 est le moyen.  </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce challenge étant de... 
+            Le scénario n°2 est le moyen.  </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce scénario étant de... 
             </font></font></p>
             <p>
               <center>
-                <button type="button" onclick="window.location.href='change_go.php'" class="bouton4">Lancer challenge</button>
+                <button type="button" onclick="window.location.href='change_go.php'" class="bouton4">Lancer scénario</button>
               </center>
             </p>
           </div>
@@ -125,14 +125,14 @@
           <img alt="Bootstrap Vignette Troisième" src="images\codecode.jpg">
           <div id="caption">
             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-              Challenge n°3 (difficile)
+              Scénario n°3 (difficile)
             </font></font></h3>
             <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-            Le challenge n°3 est le difficile.  </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce challenge étant de... 
+            Le scénario n°3 est le difficile.  </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce scénario étant de... 
             </font></font></p>
             <p>
               <center>
-                <button type="button" onclick="window.location.href='change_go.php'" class="bouton4">Lancer challenge</button>
+                <button type="button" onclick="window.location.href='challenge/challenge_hard/cha1.php'" class="bouton4">Lancer scénario</button>
               </center>
             </p>
           </div>

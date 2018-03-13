@@ -60,9 +60,10 @@
   	Novice
   </div>
   <div class="description">
-   Challenge accomplie : 
-
-   Nombre de points : 
+   Nombre de points :
+   <?php 
+    echo $_SESSION['point_total'];
+   ?>
  </div>
 
 </div>

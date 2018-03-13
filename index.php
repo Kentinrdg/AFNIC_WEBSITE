@@ -80,6 +80,7 @@
        $ligne = $resultat->fetch();
 
        $_SESSION['Statut'] = $ligne['Statut'];
+       $_SESSION['point_total'] = $ligne['point_total'];
 
        if($ligne['User']== $login && $ligne['Mdp']== $mdp)
        {

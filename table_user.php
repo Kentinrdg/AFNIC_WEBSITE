@@ -87,13 +87,15 @@
 
 				<table class="table table-striped table-bordered">
 					<thead>
-						<tr>
+							<tr>
 							<th>ID</th>
 							<th>USER</th>
 							<th>MDP</th>
 							<th>PRENOM</th>
 							<th>STATUT</th>
-							<th class="td-actions"></th>
+							<th>POINTS</th>
+							<th>EQUIPE</th>
+							<th class="td-actions">SUPPR. PROFIL</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -120,95 +122,124 @@
 								<th><?php echo $donnees['Mdp']; ?></th>
 								<th><?php echo $donnees['Prenom']; ?></th>
 								<th><?php echo $donnees['Statut']; ?></th>
+								<th><?php echo $donnees['point_total']; ?></th>
+								<th><?php 
+								$team = $donnees['equipe'];
+
+								if($team == "BLUE"){
+									echo " <center><h4 style='color: blue;'> ". $donnees['equipe'] . " </h4></center> ";
+								} else if ($team == "RED"){
+									echo " <center><h4 style='color: red;'> ". $donnees['equipe'] . " </h4></center> ";
+								} else if ($team == "NONE"){
+									echo " <center><h4'> ". $donnees['equipe'] . " </h4></center> ";
+								} else {
+									echo $donnees['equipe']; 
+								}
+
+								?></th>
+
+
 								<td class="td-actions">
 									<form  method="POST" role="form" >
-										<p><input type="button" value="Supprimer" onclick="javascript:location.href='supprimer.php?id=<?php print($donnees['Id']); ?>';"/></button><p>
-										</form>
-									</td>
-								</tr>
-								<?php
-							}
-							?>
-						</tbody>
-					</table>
-				</div> <!-- /widget-content -->
-			</div> <!-- /widget -->
+										<center><p><input class="btn btn-danger" type="button" value="Supprimer" onclick="javascript:location.href='supprimer.php?id=<?php print($donnees['Id']); ?>';"/></button><p></p></center>
+									</form>
+								</td>
+							</tr>
+							<?php
+						}
+						?>
+					</tbody>
+				</table>
+			</div> <!-- /widget-content -->
+		</div> <!-- /widget -->
 
-			<br>
-		</br>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<br>
+	</br>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-		<div class="a9">
-			<a class="button" href="#popup1">Inscrire admin</a>
+	<div class="a9">
+		<a class="button" href="#popup1">Inscrire admin</a>
 
-			<div id="popup1" class="overlay">
-				<div class="popup"><br />
-					<h3>Inscription Administrateur</h3>
+		<div id="popup1" class="overlay">
+			<div class="popup"><br />
+				<h3>Inscription Administrateur</h3>
 
-					<a class="close" href="#">×</a><br>
-					<!--<a class="close" href="#">×</a><br>-->
-					<form  method="POST" role="form" >
+				<a class="close" href="#">×</a><br>
+				<!--<a class="close" href="#">×</a><br>-->
+				<form  method="POST" role="form" >
 
-						Prénom: <br/> <input name="prenom" name="prenom" placeholder="prenom"/><br/>
-						User:<br /> <input name="user" name="user" placeholder="user" /><br />
-						Password:<br /> <input name="password" type="Password" name="password" placeholder="*******" /><br />
-						Définir rôle : <br/> 	 
+					Prénom: <br/> <input name="prenom" name="prenom" placeholder="prenom"/><br/>
+					User:<br /> <input name="user" name="user" placeholder="user" /><br />
+					Password:<br /> <input name="password" type="Password" name="password" placeholder="*******" /><br />
+					Définir rôle : <br/> 	 
 
-						<select name="selectoption">
-							<option value="user">Utilisateur</option>
-							<option value="admin">Administrateur</option>
-						</select><br/><br/>
+					<select name="selectoption">
+						<option value="user">Utilisateur</option>
+						<option value="admin">Administrateur</option>
+					</select><br/><br/>
+
+					Définir équipe ("None, blue, red") : <br/> 
+					<select name="selectTeam">
+						<option value="NONE" style="color:black">None</option>
+						<option value="BLUE" style="color:blue">Bleu</option>
+						<option value="RED" style="color:red">Rouge</option>
+					</select><br/><br/>
 
 
-						<button class="btn btn-success"  value="send" name="send" id= "send">Inscrire </button> 
-						<?php
-						if(isset($_POST['send']))
+					<button class="btn btn-success"  value="send" name="send" id= "send">Inscrire </button> 
+					<?php
+					if(isset($_POST['send']))
 
-							$selectOption = $_POST['selectoption'];
+						$selectOption = $_POST['selectoption'];
+					$selectTeam = $_POST['selectTeam'];
 
 	  					//$message= $selectOption;
 	  					//echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
 
-						$NewPrenom = $_POST['prenom'];
-						$NewLogin = $_POST['user'];
-						$NewPassword = $_POST['password'];
-						$Statut = $selectOption;
+					$NewPrenom = $_POST['prenom'];
+					$NewLogin = $_POST['user'];
+					$NewPassword = $_POST['password'];
+					$Statut = $selectOption;
+					$team = $selectTeam;
+					$point = 0;
 
 
-						include 'bdd.php';
-						$sql = $conn->prepare("INSERT INTO log(User, Mdp, Prenom, Statut)VALUES (? ,? ,?, ?)");
-						$sql->bindParam(1, $NewLogin);
-						$sql->bindParam(2, md5($NewPassword));
-						$sql->bindParam(3, $NewPrenom);
-						$sql->bindParam(4, $Statut);
-						$result = $sql->execute();
+					include 'bdd.php';
+					$sql = $conn->prepare("INSERT INTO log(User, Mdp, Prenom, Statut, point_total, equipe) VALUES (? ,? ,?, ?, ?, ?)");
+					$sql->bindParam(1, $NewLogin);
+					$sql->bindParam(2, md5($NewPassword));
+					$sql->bindParam(3, $NewPrenom);
+					$sql->bindParam(4, $Statut);
+					$sql->bindParam(5, $point);
+					$sql->bindParam(6, $team);
+					$result = $sql->execute();
 
 
 
-						if (!$result) {
-							print_r($sql->errorInfo());
-						} else {
-							$message=' Profil Ajouté';
-							echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-							echo '<script type="text/javascript">window.refresh();</script>';
-						}
+					if (!$result) {
+						print_r($sql->errorInfo());
+					} else {
+						$message=' Profil Ajouté';
+						echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+						echo '<script type="text/javascript">window.refresh();</script>';
+					}
 
-						?>
-					</form>
-				</div>
+					?>
+				</form>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<br> 
-	<br>
-	<br> 
-	<br>
+<br> 
+<br>
+<br> 
+<br>
 
-	<div  style="background-color: white;" class="container-fluid">
-		<?php include 'footer.php'; ?>
-	</div>
+<div  style="background-color: white;" class="container-fluid">
+	<?php include 'footer.php'; ?>
+</div>
 </body>
 </html>
