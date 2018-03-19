@@ -169,7 +169,7 @@ if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
 
 						<div class="form-group">
 							<label>
-								Veuillez entrer le nom d'utilisateur et le mot de passe trouvés :
+								Veuillez entrer le mot de passe trouvé :
 							</label>
 						</div>
 						<label for="labelPWD">
