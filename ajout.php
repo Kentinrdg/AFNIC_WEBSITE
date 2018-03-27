@@ -20,6 +20,7 @@
 			<ul class="nav navbar-nav" style="font-size:15px">
 				<li><a href="index.php">Accueil</a></li>
 				<li class="active"><a href="ajout.php">Inscription</a></li>
+				<li><a href="challenge.php">Challenge</a></li>
 				<li><a href="profil.php">Profil</a></li>
 				<li><a href="contact.php">Contact</a></li>
 			</ul>

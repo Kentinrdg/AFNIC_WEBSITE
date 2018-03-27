@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="../css/bootstrap.min.js"></script>
+	<script src="../../css/bootstrap.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
-	<link href="../css/index.css" rel="stylesheet">
+	<link href="../../css/index.css" rel="stylesheet">
 
 	<meta charset="utf-8">
 
@@ -44,14 +44,14 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../index.php">JNAK - CPIR</a>
+				<a class="navbar-brand" href="../../index.php">JNAK - CPIR</a>
 			</div>
 
 			<ul class="nav navbar-nav" style="font-size:15px">
 				<li class="active"><a href="../index.php">Accueil</a></li>
-				<li><a href="../ajout.php">Inscription</a></li>
-				<li><a href="../profil.php">Profil</a></li>
-				<li><a href="../contact.php">Contact</a></li>
+				<li><a href="../../ajout.php">Inscription</a></li>
+				<li><a href="../../profil.php">Profil</a></li>
+				<li><a href="../../contact.php">Contact</a></li>
 
 			</ul>
 			<?php 
@@ -63,7 +63,7 @@
 				$Statut = $_SESSION['Statut'];
 			}
 
-			include '../bdd.php';
+			include '../../bdd.php';
 
 			$Statut = $_SESSION['Statut'];
 
@@ -151,7 +151,6 @@ if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
 
 <div class="container">
 	<div class="row">
-
 		<div class="col-md-4">	
 			<div class="container">
 				<div class="card card-container">
@@ -162,44 +161,37 @@ if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
 						</h3>
 						<div class="form-group">
 							<center>
-								<a href="./trameWS.pcapng">
-									<input type="button"  class="btn btn-primary" value = "Démarrer le challenge" >
-								</a>
+								<a href="https://192.168.0.1:8006/?console=kvm&novnc=1&vmid=113&vmname=WINXP&node=pve" target="_new">
+									<input type="button" class="btn btn-primary" value="Démarrer le challenge" >
+								</a   >
 							</center>
 						</div>
 
 						<div class="form-group">
 							<label>
-								Veuillez entrer le nom d'utilisateur et le mot de passe trouvés :
+								Pénétrer le système et entrer le mot de passe trouvé :
 							</label>
 						</div>
-						<div class="form-group">
-							<label for="user">
-								User : 
-							</label>
-							<input class="form-control" id="chall1" type="texte" name="userCh1">
-						</div>
-
 						<label for="labelPWD">
 							Password : 
 						</label>
 						<input class="form-control" id="chall1" type="texte" name="mdpCh1">
 						<br>
 						<div class="form-group">
-							<button type="submit" class="btn btn-danger" name="verifmdpch1">
-								Vérifier les informations entrées
-							</button>
+							<center>
+								<button type="submit" class="btn btn-danger" name="verifmdpch1">
+									Vérifier les informations entrées
+								</button>
+							</center>
 						</div>
 					</form>
 					<?php
 					if(isset($_POST['verifmdpch1']))
 					{
-
-						$userCh1 = $_POST['userCh1'];
 						$passwordCh = $_POST['mdpCh1'];
 
-						$requete = "SELECT * FROM `challenge1` WHERE users = :loginCh1 AND password = :passwordCh1 ";
-						$donnees=array(":loginCh1"=>$userCh1,":passwordCh1"=>$passwordCh);
+						$requete = "SELECT * FROM `challenge3` WHERE password = :passwordCh1 ";
+						$donnees=array(":passwordCh1"=>$passwordCh);
 						$resultat = $conn->prepare($requete); 
 						$resultat->execute($donnees);
 
@@ -232,8 +224,6 @@ if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
 								$donnees=array(":pointAdditionner"=>$pointAdditionner,":user"=>$userName);
 								$resultat = $conn->prepare($requete); 
 								$resultat->execute($donnees);
-
-								header("Location: cha3.php");
 							}
 						} else {
 							echo '<script type="text/javascript">alert("Le mot de passe entré est incorrect. Veuillez réssayer :). Bon courage !");</script>';

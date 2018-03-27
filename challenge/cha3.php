@@ -50,6 +50,7 @@
 			<ul class="nav navbar-nav" style="font-size:15px">
 				<li class="active"><a href="../index.php">Accueil</a></li>
 				<li><a href="../ajout.php">Inscription</a></li>
+				<li><a href="../challenge.php">Challenge</a></li>
 				<li><a href="../profil.php">Profil</a></li>
 				<li><a href="../contact.php">Contact</a></li>
 
@@ -151,18 +152,16 @@ if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
 
 <div class="container">
 	<div class="row">
-
 		<div class="col-md-4">	
 			<div class="container">
 				<div class="card card-container">
 					<form method="POST" role="form">
-
 						<h3 class="text-center">
 							Lancer le challenge
 						</h3>
 						<div class="form-group">
 							<center>
-								<a href="./trameWS.pcapng">
+								<a href="challenge_btndisabled.php" target="_blank">
 									<input type="button"  class="btn btn-primary" value = "Démarrer le challenge" >
 								</a>
 							</center>
@@ -170,36 +169,31 @@ if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
 
 						<div class="form-group">
 							<label>
-								Veuillez entrer le nom d'utilisateur et le mot de passe trouvés :
+								Veuillez entrer le flag trouvé.
 							</label>
-						</div>
-						<div class="form-group">
-							<label for="user">
-								User : 
-							</label>
-							<input class="form-control" id="chall1" type="texte" name="userCh1">
 						</div>
 
 						<label for="labelPWD">
-							Password : 
+							Flag : 
 						</label>
 						<input class="form-control" id="chall1" type="texte" name="mdpCh1">
 						<br>
 						<div class="form-group">
-							<button type="submit" class="btn btn-danger" name="verifmdpch1">
-								Vérifier les informations entrées
-							</button>
+							<center>
+								<button type="submit" class="btn btn-danger" name="verifmdpch1">
+									Vérifier les informations entrées
+								</button>
+							</center>
 						</div>
 					</form>
 					<?php
 					if(isset($_POST['verifmdpch1']))
 					{
 
-						$userCh1 = $_POST['userCh1'];
 						$passwordCh = $_POST['mdpCh1'];
-
-						$requete = "SELECT * FROM `challenge1` WHERE users = :loginCh1 AND password = :passwordCh1 ";
-						$donnees=array(":loginCh1"=>$userCh1,":passwordCh1"=>$passwordCh);
+						//echo $passwordCh;
+						$requete = "SELECT * FROM `challenge_btn` WHERE flag = :passwordCh1 ";
+						$donnees=array(":passwordCh1"=>$passwordCh);
 						$resultat = $conn->prepare($requete); 
 						$resultat->execute($donnees);
 
@@ -232,8 +226,7 @@ if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
 								$donnees=array(":pointAdditionner"=>$pointAdditionner,":user"=>$userName);
 								$resultat = $conn->prepare($requete); 
 								$resultat->execute($donnees);
-
-								header("Location: cha3.php");
+								header('Location: cha4.php');
 							}
 						} else {
 							echo '<script type="text/javascript">alert("Le mot de passe entré est incorrect. Veuillez réssayer :). Bon courage !");</script>';

@@ -34,6 +34,7 @@
 			<ul class="nav navbar-nav" style="font-size:15px">
 				<li><a href="index.php">Accueil</a></li>
 				<li><a href="ajout.php">Inscription</a></li>
+				<li><a href="challenge.php">Challenge</a></li>
 				<li><a href="profil.php">Profil</a></li>
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
@@ -41,9 +42,6 @@
 	</nav>
 
 	<?php
-	  //Connect to BDD
-	$conn=new PDO ("mysql:host=localhost;dbname=test","root","");
-	  //$conn = new PDO ("mysql:host=192.168.0.44;dbname=projet","admin","admin"); //  localhost -u root -p | 192.168.0.44 -u admin -p admin
 
 	session_start();
 

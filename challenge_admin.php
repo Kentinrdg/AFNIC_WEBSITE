@@ -93,9 +93,9 @@
               Le scénario n°1 est le plus facile. </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce scénario étant de... 
               </font></font></p>
               <p>
-                <a href="challenge/cha1.php" target="_new">
+                <a href="create_accountuser.php?challenge=cha1">
                   <center>
-                   <button type="button" class="bouton4">Lancer scénario</button>
+                   <button type="button" class="btn btn-default">Lancer scénario</button>
                  </center>
                </a>
              </p>
@@ -113,9 +113,11 @@
             Le scénario n°2 est le moyen.  </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce scénario étant de... 
             </font></font></p>
             <p>
-              <center>
-                <button type="button" onclick="window.location.href='change_go.php'" class="bouton4">Lancer scénario</button>
-              </center>
+                <a href="create_accountuser.php?challenge=cha2">
+                  <center>
+                   <button type="button" class="btn btn-default">Lancer scénario</button>
+                 </center>
+               </a>
             </p>
           </div>
         </div>
@@ -131,9 +133,11 @@
             Le scénario n°3 est le difficile.  </font><font style="vertical-align: inherit;">Il permet de récupérer les flags via des fails HTML. </font><font style="vertical-align: inherit;">Le but finalement de ce scénario étant de... 
             </font></font></p>
             <p>
-              <center>
-                <button type="button" onclick="window.location.href='challenge/challenge_hard/cha1.php'" class="bouton4">Lancer scénario</button>
-              </center>
+                 <a href="create_accountuser.php?challenge=cha3">
+                  <center>
+                   <button type="button" class="btn btn-default">Lancer scénario</button>
+                 </center>
+               </a>
             </p>
           </div>
         </div>
@@ -142,6 +146,8 @@
   </div>
 </div>
 </div>
+
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

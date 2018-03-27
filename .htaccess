@@ -1,0 +1,12 @@
+ErrorDocument 400 http://localhost/afnic_website-master/400.php
+ErrorDocument 401 http://localhost/afnic_website-master/401.php
+ErrorDocument 402 http://localhost/afnic_website-master/402.php
+ErrorDocument 403 http://localhost/afnic_website-master/403.php
+ErrorDocument 404 http://localhost/afnic_website-master/404.php
+ErrorDocument 405 http://localhost/afnic_website-master/405.php
+ErrorDocument 500 http://localhost/afnic_website-master/500.php
+ErrorDocument 501 http://localhost/afnic_website-master/501.php
+ErrorDocument 502 http://localhost/afnic_website-master/502.php
+ErrorDocument 503 http://localhost/afnic_website-master/503.php
+ErrorDocument 504 http://localhost/afnic_website-master/504.php
+ErrorDocument 505 http://localhost/afnic_website-master/505.php

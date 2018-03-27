@@ -33,7 +33,7 @@
       </div>
       <ul class="nav navbar-nav" style="font-size:15px">
         <li><a href="index.php">Accueil</a></li>
-        <li><a href="ajout.php">Inscription</a></li>
+        <li><a href="challenge.php">Challenge</a></li>
         <li><a href="profil.php">Profil</a></li>
         <li class="active"><a href="contact.php">Contact</a></li>
       </ul>
@@ -66,7 +66,7 @@
                     Nathan Da Costa
                   </font></font></h3>
                   <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                    <FONT size="1">Gestion d'infrastrure et développement web.</FONT>
+                    <FONT >Gestion d'infrastrure et développement web.</FONT>
                   </font></font></p>
 
                 </div>

@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="../css/bootstrap.min.js"></script>
+	<script src="../../../css/bootstrap.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
-	<link href="../css/index.css" rel="stylesheet">
+	<link href="../../../css/index.css" rel="stylesheet">
 
 	<meta charset="utf-8">
 
@@ -48,10 +48,10 @@
 			</div>
 
 			<ul class="nav navbar-nav" style="font-size:15px">
-				<li class="active"><a href="../index.php">Accueil</a></li>
-				<li><a href="../ajout.php">Inscription</a></li>
-				<li><a href="../profil.php">Profil</a></li>
-				<li><a href="../contact.php">Contact</a></li>
+				<li><a href="../../../index.php">Accueil</a></li>
+				<li class="active"><a href="../../../challenge.php">Challenge</a></li>
+				<li><a href="../../../profil.php">Profil</a></li>
+				<li><a href="../../../contact.php">Contact</a></li>
 
 			</ul>
 			<?php 
@@ -63,14 +63,14 @@
 				$Statut = $_SESSION['Statut'];
 			}
 
-			include '../bdd.php';
+			include '../../../bdd.php';
 
 			$Statut = $_SESSION['Statut'];
 
 
 			if (isset($_POST['deconnexion'])){
 				session_destroy();
-				header("Location: ../index.php");
+				header("Location: ../../../index.php");
 			}
 
 			if (isset($_POST['seconnecter']))

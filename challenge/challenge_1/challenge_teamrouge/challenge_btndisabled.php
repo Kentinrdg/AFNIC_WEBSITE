@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../../../css/bootstrap.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
-  <link href="css/formulaire.css" rel="stylesheet">
-  <link href="css/index.css" rel="stylesheet">
-  <style>
-  body {
+  <link href="../../../css/index.css" rel="stylesheet">
 
-  }
   <meta charset="utf-8">
   
 
@@ -23,6 +19,21 @@
   .text-divider span{background-color: #f5f5f5; padding: 1em;}
   .text-divider:before{ content: " "; display: block; border-top: 1px solid #e3e3e3; border-bottom: 1px solid #f7f7f7;}
 
+  .success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+
+
   h2{
     font-family: 'Cinzel';font-size: 32px;
   }
@@ -30,61 +41,59 @@
 </head>
 <body>
 
- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">JNAK - CPIR</a>
-    </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="../../../index.php">JNAK - CPIR</a>
+      </div>
 
-    <ul class="nav navbar-nav" style="font-size:15px">
-      <li class="active"><a href="index.php">Accueil</a></li>
-     <!-- <li><a href="ajout.php">Inscription</a></li>-->
-      <li><a href="challenge.php">Challenge</a></li>
-      <li><a href="profil.php">Profil</a></li>
-      <li><a href="contact.php">Contact</a></li>
+      <ul class="nav navbar-nav" style="font-size:15px">
+        <li class="active"><a href="../../../index.php">Accueil</a></li>
+        <li><a href="../../../challenge.php">Challenge</a></li>
+        <li><a href="../../../profil.php">Profil</a></li>
+        <li><a href="../../../contact.php">Contact</a></li>
 
-    </ul>
-    <?php 
-    session_start();
-    if(isset($_SESSION['Statut'])){
+      </ul>
+      <?php 
+      session_start();
+      if(isset($_SESSION['Statut'])){
 
-    } else {
-      $_SESSION['Statut'] = "";
+      } else {
+        $_SESSION['Statut'] = "";
+        $Statut = $_SESSION['Statut'];
+      }
+
+      include '../../../bdd.php';
+
       $Statut = $_SESSION['Statut'];
-    }
-
-    include 'bdd.php';
-
-    $Statut = $_SESSION['Statut'];
 
 
-    if (isset($_POST['deconnexion'])){
-      session_destroy();
-      header("Location: index.php");
-    }
+      if (isset($_POST['deconnexion'])){
+        session_destroy();
+        header("Location: index.php");
+      }
 
-    if (isset($_POST['seconnecter']))
-    { 
+      if (isset($_POST['seconnecter']))
+      { 
 
-     $login=$_POST["login"];
-     $mdp=MD5($_POST['MDP']);
+       $login=$_POST["login"];
+       $mdp=MD5($_POST['MDP']);
 
-     $_SESSION['login'] = $_POST['login'];
-     $_SESSION['pwd'] = $_POST['MDP'];
+       $_SESSION['login'] = $_POST['login'];
+       $_SESSION['pwd'] = $_POST['MDP'];
 
 
-     $requete = "SELECT * FROM `log` WHERE User = :login AND Mdp = :mdp";
-     $donnees=array(":login"=>$login,":mdp"=>$mdp);
-     echo $mdp;
-     $resultat = $conn->prepare($requete); 
-     $resultat->execute($donnees);
-     $ligne = $resultat->fetch();
+       $requete = "SELECT * FROM `log` WHERE User = :login AND Mdp = :mdp";
+       $donnees=array(":login"=>$login,":mdp"=>$mdp);
+       echo $mdp;
+       $resultat = $conn->prepare($requete); 
+       $resultat->execute($donnees);
+       $ligne = $resultat->fetch();
 
-     $_SESSION['Statut'] = $ligne['Statut'];
-     $_SESSION['point_total'] = $ligne['point_total'];
+       $_SESSION['Statut'] = $ligne['Statut'];
 
-     if($ligne['User']== $login && $ligne['Mdp']== $mdp)
-     {
+       if($ligne['User']== $login && $ligne['Mdp']== $mdp)
+       {
 
               $message='Identifiant correct ';//echo "veuillez vous identifier";
               echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
@@ -126,7 +135,7 @@
         </div>
       </nav>
 
-      <?phpinfo()?> 
+
       <div class="container">
         <div class="card card-container">
           <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
@@ -163,31 +172,32 @@
       }
       ?>
 
-      <div class="container">
-        <br>
-        <div class="well" style="font-size: 15px;">
-          <h2 class="text-divider"><span>CAPTURE THE FLAG</span></h2>
-          <p>
-            Vous êtes face à un serveur vulnérable situé sur le réseau internet. Il vous faut trouver des faiblesses dans la sécurité de ce système pour y pénétrer.
-            Les parties se déroulent de la façon suivante :
-          </p>
-          <p>
-            <ul>
-              <li> Chaque joueur sélectionne et vote pour définir la cible, représentée par un environnement virtuel, qu’il souhaite attaquer.</li>
-              <li> La partie démarre quand tous les joueurs se sont déclarés prêts. </li>
-              <li> L’environnement à attaquer est joignable. </li>
-              <li> La partie se termine quand la machine est compromise, c’est-à-dire quand un joueur obtient les privilèges d’administration de celle ci et récupère le drapeau / flag de validation.</li>
-            </ul>
-          </p>
-          <p><center>
-            <img src="images/cdd.jpg">
-          </center>
-        </p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <form action="" method="post" name="authform">
+              <div>
+                <input disabled type="text" name="auth-login" class="form-control" value="" />
+                <input disabled type="submit" value="Member access" name="authbutton" />
+              </div>
+            </form>
+          </div>
+        </div>    
       </div>
     </div>
 
-    <div  style="background-color: white; font-size: 14px" class="container-fluid">
-      <?php include 'footer.php'; ?>
-    </div>
+    <?php  
+
+    if(!empty($_POST['auth-login']) && !empty($_POST['authbutton'])){
+      $login = $_POST['auth-login'];
+      $button = $_POST['authbutton'];
+
+      header("Location: result.php");
+    }
+
+    ?>
+
   </body>
   </html>

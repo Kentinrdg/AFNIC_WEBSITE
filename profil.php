@@ -44,7 +44,7 @@
     </div>
     <ul class="nav navbar-nav" style="font-size:15px">
       <li><a href="index.php">Accueil</a></li>
-      <li><a href="ajout.php">Inscription</a></li>
+      <li><a href="challenge.php">Challenge</a></li>
       <li class="active"><a href="profil.php">Profil</a></li>
       <li><a href="contact.php">Contact</a></li>
     </ul>
@@ -62,7 +62,7 @@
   <div class="description">
    Nombre de points :
    <?php 
-    echo $_SESSION['point_total'];
+   echo $_SESSION['point_total'];
    ?>
  </div>
 
